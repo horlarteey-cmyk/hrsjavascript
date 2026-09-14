@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="numberField">
+    <button onclick="multiply">multiply</button>
+    
+</body>
+<script>
+    //arithmetic operators : / * - + %
+
+    //assignment Operators : =, +=,
+    let value = 10;
+
+    value = 50;
+
+    console.log(value);
+
+    value += 10 // value = value + 10
+
+    console.log(value)
+
+
+    function multiply() {
+        let numberField = document.getElementById('numberField');
+        let number = numberField.value;
+
+        number = number * 20;
+
+        console.log(number);
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: grid;
+            place-items: center;
+        }
+        .calculator-pane {
+            padding: 20px;
+            width: 90%;
+            height: 100vh;
+            button{
+                outline: none;
+                border: none;
+            }
+            .calculator{
+                box-shadow: 0 0 12px 0 rgb(104, 104, 104);
+                width: fit-content;
+                padding: 2em;
+                background-color: #263a4e;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                color: white;
+                --sub-padding: 7px;
+                .input-field{
+                    padding: 2px;
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    gap: 20px;
+                    input{
+                        box-shadow: 0 0 12px 0 inset #000;
+                        color: #babaff;
+                        border: none;
+                        outline: none;
+                        width: 100%;
+                    }
+                    #operator{
+                        display: grid;
+                        place-items: center;
+                        font-size: 14px;
+                        color: #babaff;
+                        border-radius: 20px;
+                        font-family: calibri;
+                        > * {
+                            width: 20px;
+                            height: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+                .operators{
+                    display: flex;
+                    gap: 13px;
+                    padding-inline: var(--sub-padding);
+    
+                    button{
+                        padding: 2px;
+                        width: 45px;
+                        background-color: rgb(4, 38, 104);
+                        box-shadow: 0 0 26px 0 inset #7784ab;
+                        outline: solid 2px #0b1727;
+                        outline-offset: 2px;
+                        border-radius: 5px;
+                        border: none;
+                        color: white;
+                        transition: all .2s ease-in-out;
+                        cursor: pointer;
+                    }
+                    button:active{
+                        opacity: .5;
+                    }
+                    button.selected{
+                        background-color: #223054;
+                        box-shadow: 0 0 12px 0 inset #1d1b36;
+                        color: #a04bda;
+                        outline: solid 2px #5f1c97;
+                    }
+                }
+                input{
+                    border: none;
+                    background-color: rgb(38, 69, 99);
+                    border-radius: 5px;
+                    color: white;
+                    padding: 10px;
+                    width: 100%
+                }
+                .screen{
+                    display: flex;
+                    padding-inline: 2px;
+                    gap: 1em;
+                    input {
+                        box-shadow: 0 0 12px 0 inset #000;
+                        cursor: not-allowed;
+                    }
+                }
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-pane">
+        <div class="calculator">
+            <div class="input-field">
+                <input type="text" value="0" id="main">
+                <div id="operator"><span id="show">?</span></div>
+                <input type="text" value="0" id="sub">
+            </div>
+            <div class="operators">
+               <button id="div" onclick="div()">/</button>
+               <button id="mul" onclick="mul()">*</button>
+               <button id="add" onclick="add()">+</button>
+               <button id="sub" onclick="sub()">-</button>
+               <button id="mod" onclick="mod()">%</button>
+               <button id="pow" onclick="pow()">^</button>
+            </div>
+            <div class="screen">
+                <!-- <button>=</button> -->
+                <input type="text" id="screen" class="display" disabled>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let input1 = document.getElementById('main');
+        let input2 = document.getElementById('sub');
+        let screen = document.getElementById('screen');
+        let operator = document.getElementById('show');
+
+        function clear() {
+            input1.value = 0
+            input2.value = 0
+        }
+
+        function add(){
+            screen.value = (+input1.value) + (+input2.value);
+            operator.innerHTML = '+'
+            clear()
+        }
+        function sub(){
+            screen.value = (+input1.value) - (+input2.value);
+            operator.innerHTML = '-'
+            clear()
+        }
+        function mul(){
+            screen.value = (+input1.value) * (+input2.value);
+            operator.innerHTML = 'X'
+            clear()
+        }
+        function div(){
+            screen.value = (+input1.value) / (+input2.value);
+            operator.innerHTML = '/'
+            clear()
+        }
+        function mod(){
+            screen.value = (+input1.value) % (+input2.value);
+            operator.innerHTML = '%'
+            clear()
+        }
+        function pow(){
+            screen.value = Math.pow(+(input1.value), (+input2.value));
+            operator.innerHTML = '^'
+            clear()
+        }
+    </script>
+</body>
+</html>

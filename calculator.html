@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculation</title>
+    <style>
+      * {
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: pink;
+        padding: 150px;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+      }
+      input {
+        height: 50px;
+      }
+      .buttons {
+        button {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+
+      <div class="hero">
+        <div id="topinput">
+          <input type="number" id="input1" value="0">
+
+          <span id="sign">?</span>
+
+          <input type="number" id="input2" value="0">
+        </div>
+        <div class="buttons">
+          <button onclick="plus()" id="plus">+</button>
+          <button onclick="subtract()" id="sub">-</button>
+          <button onclick="multiply()" id="mult">*</button>
+          <button onclick="divide()" id="divd">/</button>
+          <button onclick="remainder()" id="rem">%</button>
+          <button onclick="power()" id="sqrt">^</button>
+        </div>
+
+        <div class="result">
+          <input type="number" id="result" value="0" disabled>
+        </div>
+
+      </div>
+    </center>
+  </body>
+
+  <script>
+   
+    let display1 = document.getElementById("input1");
+    let display2 = document.getElementById("input2");
+    let output = document.getElementById("result");
+    let operator = document.getElementById("sign");
+
+    function clear(){
+      display1.value = 0;
+      display2.value = 0;
+    }
+
+    function plus(){
+      output.value = (+display1.value) + (+display2.value);
+      sign.textContent = "+"
+      clear();
+    }
+
+    function subtract(){
+    result.value = (+display1.value) - (+display2.value);
+    sign.textContent = '-'
+    clear()
+    }
+    
+    function multiply(){
+    result.value = (+display1.value) * (+display2.value)
+    sign.textContent = '*'
+    clear()
+            
+    }
+
+    function divide(){
+    result.value = (+display1.value) / (+display2.value)
+    sign.textContent = '/'
+    clear()
+    }
+    
+    function remainder(){
+    output.value = (+display1.value) % (+display2.value)
+    sign.textContent = '%'
+    clear()
+    }
+
+    function power(){
+    output.value = Math.pow((+display1.value),(+display2.value))
+    sign.textContent = '^'
+    clear()
+    }
+  </script>
+</html>
