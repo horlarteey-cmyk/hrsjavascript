@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(37, 29, 37);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.filter-pane{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding:20px;
+    width: 90%;
+    margin: auto;
+    background-color: rgb(14, 11, 14);
+    .header{
+        font-size: 30px;
+        font-family: calibri;
+        color: rgb(255, 21, 21);
+        .sub {
+            font-size: 12px;
+            color: #ecdee8;
+        }
+    }
+    .form-area {
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        --theme-color : #8f0310;
+        .flag-area{
+            border: solid var(--theme-color) 1px; 
+            border-bottom: none;
+            padding: 10px;
+            #flags {
+                display: flex;
+                gap: 1em;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: rgb(255, 77, 77);
+                input[type="checkbox"] {
+                    display: none;
+                }
+                .mark{
+                    display: flex;
+                    align-items: center;
+                    gap: 2px;
+                    font-family: calibri;
+                    padding: 3px 7px;
+                    background: #211e1e;
+                    color: #c7baba;
+                    .checkbox{
+                        border: solid 1px #9b9494;
+                        width: fit-content;
+                        padding: 2px;
+                        border: solid 1px;
+                        .marker{
+                            width: 8px;
+                            height: 8px;
+                        }
+                    }
+                    label:nth-child(2) {
+                        cursor: pointer;
+                    }
+                    label:nth-child(2):active {
+                        border-color: rgb(112, 112, 112);
+                    }
+                    label:nth-child(3) {
+                        font-size: 14px;
+                        cursor: pointer;
+                    }
+                    label:nth-child(3):active {
+                        opacity: .4;
+                    }
+                }
+                .mark:has(:checked){
+                    .checkbox{
+                        border: solid 1px #4a2222;
+                        .marker{
+                            background-color: #ad0010;
+                        }
+                    }
+                }
+                .mark.all {
+                    background: #8f0310;
+                    border-radius: 1px;
+                    .checkbox{
+                        border: solid 1px #9a8c8c;
+                    }
+                }
+                .mark.all:has(:checked) {
+                    .checkbox{
+                        border: solid 1px #da0202;
+                        .marker{
+                            background: #f20000;
+                        }
+                    }
+                }
+            }
+        }
+        .input {
+            padding: 6px;
+            display: flex;
+            gap: 1em;
+            border: solid 1px var(--theme-color);
+            #sentence{
+                width: 90%;
+                border: none;
+                background-color: rgba(255, 255, 255, 0);
+                outline: none;
+                padding: 2px 0;
+                color: white;
+            }
+            button{
+                outline: none;
+                border: none;
+                padding: 10px;
+                background-color: #8f0310;
+                color: rgb(255, 255, 255);
+            }
+        }
+    }
+    #screen{
+        display: none;
+        font-family: verdana;
+        font-size: 12px;
+        background: rgb(39, 36, 39);
+        padding: 20px;
+        #message{
+            color: #a9a49b;
+        }
+        #response {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            .censored {
+                color: #ece2e2;
+                padding: 10px;
+                border-radius: 20px;
+                width: fit-content;
+                background: #9a1d29;
+            }
+            #message {
+                padding: 10px 5px;
+                .asterisk{
+                    color:#f00;
+                }
+            }
+            #message + * {
+                color: rgb(224, 209, 219);
+            }
+        }
+    }
+}
+@media (min-width: 900px) {      
+    .form-area {
+        max-width: 545px;
+    }
+}
+</style>
+</head>
+<body>
+        <div class="filter-pane">
+        <div class="header">
+            <div class="main">*Words Censor</div>
+            <div class="sub">
+                This simple app helps to filters vulgar words shown in the box below
+            </div>
+        </div>
+        <div class="form-area">
+            <div class="">
+                <div class="flag-area">
+                    <div id="flags">
+                        <div class="mark">
+                            <input type="checkbox" value="crazy" id="crazy"> 
+                            <label for="crazy" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="crazy">crazy</label>
+                        </div>
+                        <div class="mark">
+                            <input type="checkbox" value="shit" id="shit"> 
+                            <label for="shit" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="shit">shit</label>
+                        </div>
+                        <div class="mark">
+                            <input type="checkbox" value="stupid" id="stupid"> 
+                            <label for="stupid" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="stupid">stupid</label>
+                        </div>
+                        <div class="mark">
+                            <input type="checkbox" value="imbecile" id="imbecile"> 
+                            <label for="imbecile" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="imbecile">imbecile</label>
+                        </div>
+                        <div class="mark">
+                            <input type="checkbox" value="bastard" id="bastard"> 
+                            <label for="bastard" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="bastard">bastard</label>
+                        </div>
+                        <div class="mark">
+                            <input type="checkbox" value="idiot" id="idiot"> 
+                            <label for="idiot" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="idiot">idiot</label>
+                        </div>
+                        <div class="mark all">
+                            <input type="checkbox" value="all" id="all"> 
+                            <label for="all" onclick="allChecks()" class="checkbox">
+                                <div class="marker"></div>
+                            </label>
+                            <label for="all" onclick="allChecks()">ALL</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input">
+                    <textarea id="sentence" rows="5"></textarea>
+                    <button class="filter" onclick="filter()">Filter</button>
+                </div>
+            </div>
+            <div id="screen">
+                <div id="response">
+                    <div class="censored">*Censored</div>
+                    <div id="message"></div>
+                </div>
+            </div>
+            <!-- <div class="">
+                <div class="">Sentence sample</div>
+                <div class="">
+                    This is a crazy shit censor application. I mean, why exactly will someone just decide 
+                    to censor my comments? They are just a bunch of stupid and idiotic imbecile bastards!
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>

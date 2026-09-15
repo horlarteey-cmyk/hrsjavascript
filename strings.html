@@ -20,44 +20,48 @@
 
   <div id="hero"></div>
 
+  <div id="box">
+    <span></span>
+    <input type="text">
+    <span></span>
+  </div>
+
 
 </body>
     <script>
         function show(){
             let display = document.getElementById('input').value
 
-            let result = display.split('')
-            hero.textContent = "result"
+            let result = display.split(' ')
+            hero.textContent = result
 
             console.log(result)
         }
       
 
-      
+
+
+let myString = 'This is SQI class'
+
+let mind = (myString.toLowerCase().split('i'))
+
+console.log(mind)
+
+//substr
+let newString = 'This dictionary is good'
+let shows = newString.substr(5, 10).toUpperCase()
+console.log(shows)
+console.log(`This ${shows} is good`)
 
 
 
+// console.log(newString.substr(5, 10))
+// console.log(newString.substring(5, 15))
 
+// let upper = newString.uppercCase()
 
-// let myString = 'This is  SQI class';
+// console(uppercCase)
 
-//string methods: split, index, indexOf, concat, toUpper, toLower, substring, substr
-//repeat,replace,endWith, startWith, trimStart/trimLeft, trimRight/trimEnd, match, search
-
-// let sentenceSplit = mySplit.split('')
-// console.log(sentenceSplit);
-// //
-// let myString = 'This is a new value'
-
-// let upperCaseString = trimmedSpaces.toUpperCase()
-
-//let myString = 'This is SQI class';
-
-// myString = 'This is SQI class';
-
-// let lowercase = myString.toLowerCase()
-// let split = lowercase.split('i')
-// console.log(split)
 
 
 </script>

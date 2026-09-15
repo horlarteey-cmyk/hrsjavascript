@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD CENSOR</title>
+</head>
+<style>
+    body{
+        height: 40vh;
+        font-family: sans-serif;
+
+    }
+   
+    #hero{
+        background-color: blue;
+        height: 80%;
+        width: 80%;
+        margin: 100px;
+
+        border: 3px solid red;
+        color: white;
+    }
+    #box{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    #box .check{
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    #box .divider{
+        background-color: red;
+        height: 3px;
+    }
+    .input{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        padding: 10px;
+    }
+    .input textarea{
+        height: 100px;
+        width: 800px;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .input button{
+        height: 70px;
+        width: 120px;
+        color: white;
+        background-color: red;
+
+        font-size: larger;
+        font-weight: bold;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+    }
+    .result textarea{
+        height: 80px;
+        width: 800px; 
+        color: white;
+        background-color: blue;
+        border-radius: 5px;
+        padding: 10px;
+
+    }
+    .result{
+         display: flex;
+        align-items: center;
+        padding: 10px;
+
+    }
+</style>
+<body>
+    <center>
+    <div id="hero">
+        <h1>VULGAR W*RD CENS*R</h1>
+        <div id="box">
+            <div class='check'>
+                <span>
+                <input type="checkbox" id="fuck">
+                <label for="fuck">FUCK</label>
+                </span>
+                <span>
+                <input type="checkbox" id="bitch">
+                <label for="bitch">BITCH</label>
+                </span>
+                <span>
+                <input type="checkbox" id="motherfucker">
+                <label for="motherfucker">MOTHERFUCKER</label>
+                </span>
+                <span>
+                <input type="checkbox" id="idiot">
+                <label for="idiot">IDIOT</label>
+                </span>
+                <span>
+                <input type="checkbox" id="shit">
+                <label for="shit">SHIT</label>
+                </span>
+                
+            </div>
+
+            <div class="divider"></div>
+            <span class="input">
+            <textarea name="" id="input" placeholder="type here, no f words"></textarea>
+            <button onclick="filter()">FILTER</button>
+            </span>
+        </div>
+            <div class="divider"></div>
+        <div class="result">
+            <textarea name="" id="show"></textarea>
+        </div>
+
+    </div>
+    </center>
+</body>
+<script>
+
+    function filter(){
+        let result = document.getElementById('input').value
+        let output = document.getElementById('show')
+        let through = result.trim().toLowerCase().replaceAll('fuck', '****').replaceAll('bitch', '*****').replaceAll('scumbag', '*******').replaceAll('idiot', '*****').replaceAll('shit','****')
+        output.value = through
+
+        console.log(output)
+
+
+// Fuck this shit, that motherfucker is a bitch and an idiot
+
+        // console.log(result.replace('fuck', '****'))
+        // console.log(result.replace('bitch', '*****'))
+        // console.log(result.replace('motherfucker', '************'))
+        // console.log(result.replace('idiot', '*****'))
+        // console.log(result.replace('shit','****'))
+
+
+    }
+    
+    // replace('fuck', '****')
+    // replace('bitch', '*****')
+    // replace('motherfucker', '************')
+    // replace('idiot', '*****')
+    // replace('shit','****')
+
+    
+    
+
+</script>
+</html>
