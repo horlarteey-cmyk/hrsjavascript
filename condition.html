@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>conditional operation</title>
+    <style>
+        body{
+
+        }
+        .hero{
+            background-color: blue;
+            border-radius: 50px;
+            height: 300px;
+            width: 600px;
+            margin: 50px;
+            padding: 100px 20px 50px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            color: white;
+        }
+        input{
+            height: 50px;
+            width: 250px;
+            border-radius: 10px;
+            border: none;
+            color: blue;
+            font-weight: bolder;
+        }
+        button{
+            width: 90%;
+            height: 55px;
+            border: none;
+            border-radius: 10px;
+            color: blue;
+            background-color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .divider{
+            height: 1px;
+            background-color: white;
+        }
+        
+
+
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+        <div class="input">
+          <input id="first" value="0" type="number" />
+          <span>*********</span>
+          <input id="second" type="number" value="0" />
+        </div>
+        <div class="divider"></div>
+      <div>
+        <button onclick="submit()">SUBMIT</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    let firstInput = document.getElementById('first')
+    let secondInput = document.getElementById('second')
+
+    
+    function submit(){
+        //   if (firstInput.value > secondInput.value){ 
+        // console.log(`True! ${firstInput.value} is greater than ${secondInput.value}`)
+        // }if (firstInput.value < secondInput.value){
+        // console.log(`FALSE! ${firstInput.value} is less than ${secondInput.value}`)
+        // } if (firstInput.value = secondInput.value){
+        //  console.log('they are equal')
+        // }
+
+`       
+
+
+
+        if (firstInput.value > secondInput.value){ 
+        console.log(`True! ${firstInput.value} is greater than ${secondInput.value}`)
+        }else if (firstInput.value < secondInput.value){
+        console.log(`FALSE! ${firstInput.value} is less than ${secondInput.value}`)
+        } else{
+        console.log('they are equal')
+        }
+    }
+  </script>
+</html>

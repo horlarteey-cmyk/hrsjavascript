@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+        }
+        .hero{
+            background-color: blue;
+            border-radius: 50px;
+            height: 380px;
+            width: 600px;
+            margin: 50px;
+            padding: 50px 20px 50px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            color: white;
+        }
+        input{
+            height: 50px;
+            width: 85%;
+            border-radius: 10px;
+            border: none;
+            color: blue;
+            font-weight: bolder;
+            margin: 25px;
+        }
+        button{
+            width: 90%;
+            height: 55px;
+            border: none;
+            border-radius: 10px;
+            color: blue;
+            background-color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 20px;
+            cursor: pointer;
+        }
+       .input .divider{
+            height: 1px;
+            background-color: white;
+        }
+
+        P{
+            text-align: center;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    
+</body>
+<div class="hero">
+        <div class="input">
+            <div class="top">
+                <p>DAYS OF THE</p>
+                <input id="first" placeholder="month" type="text" />
+            </div>
+        <button onclick="submit()">SUBMIT</button>
+        <div class="divider"></div>
+    <p id="output"></p>
+
+      </div>
+</div>
+  </body>
+  <script>
+    // let secondInput = document.getElementById('second')
+
+    function submit(){
+    let input = document.getElementById('first').value.trim().toLowerCase() 
+    let result = document.getElementById('output')
+
+        if ( input === 'january'|| input === 'jan'){
+            result.textContent = (`January has 31 days`)
+        }else if ( input === 'february'|| input === 'feb'){
+            result.textContent = (`February has 28 days (29 days during a leap year)`)
+        }else if ( input === 'march'|| input === 'mar'){
+            result.textContent = (`March has 31 days`)
+        }else if ( input === 'april'|| input === 'apr'){
+            result.textContent = (`April has 30 days`)
+        }else if ( input === 'may'){
+            result.textContent = (`May has 31 days`)
+        }else if ( input === 'june'|| input === 'jun'){
+            result.textContent = (`June has 30 days`)
+        }else if ( input === 'july'|| input === 'jul'){
+            result.textContent = (`July has 31 days`)
+        }else if ( input === 'august'|| input === 'aug'){
+            result.textContent = (`August has 31 days`)
+        }else if ( input === 'september'|| input === 'sep'){
+            result.textContent = (`September has 30 days`)
+        }else if ( input === 'october'|| input === 'oct'){
+            result.textContent = (`October has 31 days`)
+        }else if ( input === 'november'|| input === 'nov'){
+            result.textContent = (`November has 30 days`)
+        }else if ( input === 'december'|| input === 'dec'){
+            result.textContent = (`December has 31 days`)
+        }
+       // else if (input === ''){
+        //     result.textContent = ('invalid month')
+        // }
+        else{
+            result.textContent = ('invalid month')
+        }
+    }
+
+  
+  </script>
+</html>

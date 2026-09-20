@@ -20,12 +20,6 @@
 
   <div id="hero"></div>
 
-  <div id="box">
-    <span></span>
-    <input type="text">
-    <span></span>
-  </div>
-
 
 </body>
     <script>
@@ -49,9 +43,11 @@ console.log(mind)
 
 //substr
 let newString = 'This dictionary is good'
+let first = newString.substr(0, 5)
+let after = newString.substr(15, 8)
 let shows = newString.substr(5, 10).toUpperCase()
-console.log(shows)
-console.log(`This ${shows} is good`)
+let output = (first + shows + after)
+console.log(output)
 
 
 
