@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random RGB Color Generator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 200px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        #message {
+            text-align: center;
+            margin: 15px 0;
+            color: red;
+            min-height: 20px;
+        }
+
+        #boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .color-box {
+            height: 150px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 1px 3px black;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+
+            .form {
+                flex-direction: column;
+            }
+
+            input,
+            button {
+                width: 100%;
+            }
+
+            .color-box {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Random RGB Color Generator</h1>
+
+        <p class="description">
+            Enter the number of color boxes you want to generate.
+        </p>
+
+        <div class="form">
+            <input
+                type="number"
+                id="input"
+                placeholder="Enter number"
+                min="1"
+                max="100"
+            >
+
+            <button onclick="generateColors()">
+                Generate Colors
+            </button>
+        </div>
+
+        <p id="message"></p>
+
+        <div id="boxes"></div>
+
+    </div>
+
+
+
+</body>
+    <script>
+
+        function generateColors() {
+
+            // let input = document.getElementById("input").value;
+            // let boxes = document.getElementById("boxes");
+            // let message = document.getElementById("message");
+
+            // // Clear previous results
+            // boxes.innerHTML = "";
+            // message.textContent = "";
+
+            // // Check if input is empty
+            // if (input === "") {
+            //     message.textContent = "Please enter a number.";
+            //     return;
+            // }
+
+            // // Convert input to a number
+            // input = Number(input);
+
+            // // Check if input is a valid number
+            // if (!Number.isInteger(input)) {
+            //     message.textContent = "Please enter a valid whole number.";
+            //     return;
+            // }
+
+            // // Check if number is less than 1
+            // if (input < 1) {
+            //     message.textContent = "Please enter a number greater than 0.";
+            //     return;
+            // }
+
+            // // Check if number is greater than 100
+            // if (input > 100) {
+            //     message.textContent = "Please enter a number between 1 and 100.";
+            //     return;
+            // }
+
+            // Generate the boxes
+            for (let i = 1; i <= input; i++) {
+
+                // Generate random RGB values
+                let red = Math.floor(Math.random() * 256);
+                let green = Math.floor(Math.random() * 256);
+                let blue = Math.floor(Math.random() * 256);
+
+                console.log(green)
+
+                // Create RGB color
+                let rgbColor = `rgb(${red}, ${green}, ${blue})`;
+
+                // Create a new box
+                let box = document.createElement("div");
+
+                // Give the box a class
+                box.className = "color-box";
+
+                // Give the box its random background color
+                box.style.backgroundColor = rgbColor;
+
+                // Display the RGB value inside the box
+                box.textContent = rgbColor;
+
+                // Add the box to the webpage
+                boxes.appendChild(box);
+            }
+        }
+
+    </script>
+</html>

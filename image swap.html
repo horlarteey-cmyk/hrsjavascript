@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Carousel</title>
+
+    <style>
+
+        /* Center everything on the page */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the image */
+        img {
+            width: 500px;
+            height: 300px;
+
+            /* Makes the image fit nicely inside the box */
+            object-fit: cover;
+        }
+
+        /* Style the buttons */
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <h2>Image Carousel</h2>
+
+
+    <!--
+        This is the image that will be displayed.
+
+        id="slideImage"
+        gives the image an ID so JavaScript can find it.
+
+        The src is the first image that will appear.
+    -->
+
+    <img
+        id="slideImage"
+        src="https://picsum.photos/id/1015/500/300"
+        alt="Carousel Image"
+    >
+
+
+    <br>
+
+
+    <!--
+        When this button is clicked,
+        the prev() function will run.
+    -->
+
+    <button onclick="prev()">Prev</button>
+
+
+    <!--
+        When this button is clicked,
+        the next() function will run.
+    -->
+
+    <button onclick="next()">Next</button>
+
+
+
+    <script>
+
+        /*
+            =========================================
+            STEP 1: CREATE AN ARRAY OF IMAGES
+            =========================================
+
+            We put all our image URLs inside an array.
+
+            Remember:
+            JavaScript starts counting from 0.
+
+            Image 1 = index 0
+            Image 2 = index 1
+            Image 3 = index 2
+            Image 4 = index 3
+        */
+
+        let images = [
+
+            "https://picsum.photos/id/1015/500/300",
+
+            "https://picsum.photos/id/1016/500/300",
+
+            "https://picsum.photos/id/1018/500/300",
+
+            "https://picsum.photos/id/1019/500/300"
+
+        ];
+
+
+
+        /*
+            =========================================
+            STEP 2: KEEP TRACK OF THE CURRENT IMAGE
+            =========================================
+
+            We start from index 0.
+
+            index 0 = first image
+        */
+
+        let currentImage = 0;
+
+
+
+        /*
+            =========================================
+            STEP 3: NEXT FUNCTION
+            =========================================
+
+            This function runs when we click
+            the NEXT button.
+        */
+
+        function next() {
+
+
+            /*
+                ++ means ADD 1.
+
+                For example:
+
+                currentImage = 0
+
+                currentImage++;
+
+                currentImage = 1
+
+                So we move to the next image.
+            */
+
+            currentImage++;
+
+
+
+            /*
+                =====================================
+                CHECK IF WE HAVE REACHED THE END
+                =====================================
+
+                images.length tells us how many
+                images are inside our array.
+
+                We have 4 images.
+
+                Therefore:
+
+                images.length = 4
+
+                But our indexes are:
+
+                0
+                1
+                2
+                3
+
+                If currentImage becomes 4,
+                we have gone past the last image.
+
+                So we return to index 0.
+            */
+
+            if (currentImage == images.length) {
+
+                currentImage = 0;
+
+            }
+
+
+
+            /*
+                =====================================
+                CHANGE THE IMAGE ON THE WEB PAGE
+                =====================================
+
+                getElementById("slideImage")
+
+                finds this HTML:
+
+                <img id="slideImage">
+
+                .src changes the image.
+
+                images[currentImage]
+                gets the image we currently want.
+            */
+
+            document.getElementById("slideImage").src =
+                images[currentImage];
+
+        }
+
+
+
+        /*
+            =========================================
+            STEP 4: PREVIOUS FUNCTION
+            =========================================
+
+            This function runs when we click
+            the PREV button.
+        */
+
+        function prev() {
+
+
+            /*
+                -- means SUBTRACT 1.
+
+                For example:
+
+                currentImage = 3
+
+                currentImage--;
+
+                currentImage = 2
+
+                So we move to the previous image.
+            */
+
+            currentImage--;
+
+
+
+            /*
+                =====================================
+                CHECK IF WE HAVE GONE BEFORE IMAGE 1
+                =====================================
+
+                Remember:
+
+                First image = index 0
+
+                If we click Prev while we are
+                already at index 0:
+
+                0 - 1 = -1
+
+                There is no images[-1].
+
+                Therefore, we need to go to the
+                LAST image instead.
+            */
+
+            if (currentImage < 0) {
+
+
+                /*
+                    images.length = 4
+
+                    4 - 1 = 3
+
+                    Index 3 is the last image.
+
+                    Therefore, we move to the
+                    last image.
+                */
+
+                currentImage = images.length - 1;
+
+            }
+
+
+
+            /*
+                =====================================
+                CHANGE THE IMAGE ON THE WEB PAGE
+                =====================================
+
+                Find the image with the ID
+                "slideImage"
+
+                Then change its src to the
+                currently selected image.
+            */
+
+            document.getElementById("slideImage").src =
+                images[currentImage];
+
+        }
+
+    </script>
+
+</body>
+
+</html>

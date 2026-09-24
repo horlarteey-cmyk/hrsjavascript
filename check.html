@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    <input type="number" name="" id="input">
-    <button onclick="show()">submit</button>
-    <input id="output" disabled>
-    <span id="result"></span>
+    <div class="top">
+    <p>INPUT :</p> <input type="number" id="input">
+    </div>
+    <div class="mid">
+        <span id="output"></span>
+        <!-- <p>RATE :  <h3 id="output"></h3></p> -->
+    </div>
+    <div class="down">
+        <span id=" result"></span>
+        <!-- <p>Total Bill : <h1 id=" result"></h1></p>  -->
+    </div>
+    <button onclick="show()">check</button>
 </body>
 <script>
     function show(){
@@ -17,47 +28,15 @@
         let output = document.getElementById('output')
         let result = document.getElementById('result')
 
-        if (input === '1'){
-            result.textContent = 'Monday'
-            output.value = "Monday"
-            console.log('Monday')
-        }else if (input === "2"){
-            result.textContent = 'Tuesday'
-            output.value = "Tuesday"
-            console.log('Tuesday')
-        }else if (input === "3"){
-             result.textContent = 'Wednesday'
-            output.value = "Wednesday"
-            console.log('Wednesday')
+        input = +input
+        output = +output
 
-        }else if (input === "4"){
-             result.textContent = 'Thursday'
-            output.value = "Thursday"
-            console.log('Thursday')
-            
-        }else if (input === "5"){
-             result.textContent = 'Friday'
-            output.value = "Friday"
-            console.log('Friday')
-            
-        }else if (input === "6"){
-             result.textContent = 'Saturday'
-            output.value = "Saturday"
-            console.log('Saturday')
-            
-        }else if (input === "7"){
-            result.textContent = 'Sunday'
-            output.value = "Sunday"
-            console.log('Sunday')
-            
-        }else{
-            result.textContent = 'Please enter a valid day number (1-7)'
-            output.value = "Please enter a valid day number (1-7)"
-            console.log('Please enter a valid day number (1-7)')
-            
+        if (input >= 0 || input < 51){
+            output.textContent = 50
+            result.textContent = 'input * output.textContent'
         }
-
-
     }
+
+
 </script>
 </html>

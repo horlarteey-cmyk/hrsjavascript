@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            font-weight: bolder;
+            width: 150px;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <h2>Image Carousel</h2>
+    <div>
+    <img id="slideImage" src="desert.jpg" alt="">
+</div>
+
+<button onclick="previous()">PREVIOUS</button>
+
+<button onclick="next()">NEXT</button>
+
+
+
+</body>
+<script>
+
+    let images = [
+        'desert.jpg',
+        'rock.jpg',
+        'sea.jpg',
+        'tiger.jfif',
+        'tree.jfif',
+    ];
+
+
+    let currentImage = 0
+
+    function next(){
+
+        currentImage++
+        if (currentImage === images.length){
+            currentImage = 0
+        }
+
+
+        document.getElementById("slideImage").src = images[currentImage];
+
+    }
+
+      function previous(){
+        currentImage--
+
+        if (currentImage < 0){
+            currentImage = images.length-1
+        }
+
+        document.getElementById("slideImage").src = images[currentImage];
+
+
+    }
+</script>
+</html>
+

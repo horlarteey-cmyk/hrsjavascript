@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forloops</title>
+     <style>
+        body{
+
+        }
+        .hero{
+            background-color: rgb(255, 0, 204);
+            border-radius: 50px;
+            height: 100%;
+            width: 90%;
+            padding: 100px 20px 50px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            color: white;
+        }
+        input{
+            height: 50px;
+            width: 250px;
+                margin: 100px;
+            border-radius: 10px;
+            border: none;
+            color: blue;
+            font-weight: bolder;
+        }
+        button{
+            width: 90%;
+            height: 55px;
+            border: none;
+            border-radius: 10px;
+            color: blue;
+            background-color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .divider{
+            height: 1px;
+            background-color: white;
+        }
+        
+
+
+    </style>
+
+</head>
+<body>
+   <div class="hero">
+        <div class="input">
+          <input id="input1" value="0" type="number" />
+          <span>*********</span>
+          <input id="input2" type="number" value="0" />
+        </div>
+        <div class="divider"></div>
+      <div>
+        <button onclick="show()">multiply</button>
+      </div>
+      <p id="result"></p>
+    </div>
+
+    
+</body>
+<script> 
+function show() {
+
+    // Get the input values
+    let input1 = document.getElementById("input1").value;
+    let input2 = document.getElementById("input2").value;
+
+    // Get the output element
+    let result = document.getElementById("result");
+
+    // Validate the input fields
+    if (input1 === "" || input2 === "") {
+
+    result.innerHTML = "Please enter valid numbers in both fields";
+    return;
+
+    }
+
+    // Convert the input values to numbers
+    input1 = Number(input1);
+    input2 = Number(input2);
+
+    // Check if Input A is greater than Input B
+    if (input1 > input2) {
+        result.innerHTML = "YOUR FIRST INPUT MUST BE LESSER THAN OR EQUAL TO YOUR SECOND INPUT";
+        return;
+
+    }
+
+    // Create an empty string to store the table
+    let output = "";
+
+    // Generate the 12 times table
+    for (let i = input1; i <= input2; i++) {
+
+        output = `12 * ${i} = ${12 * i}<br>`;
+
+    }
+
+    // Display the result on the webpage
+    result.innerHTML = output;
+
+}
+
+    // function show(){
+    //     let input1 = document.getElementById('input1').value
+    //     let input2 = document.getElementById('input2').value
+    //     let result = document.getElementById('result')
+        
+    //     if (input1 === "" || input2 === "") {
+    //     result.innerHTML = "Please enter valid numbers in both fields";
+    //     }
+
+    //     input1 = +input1
+    //     input2 = +input2
+
+
+
+    //     if (input1 >= input2){
+    //     result.innerHTML = "Your first input can not be greater than your last input";
+    // 
+
+</script>
+</html>
