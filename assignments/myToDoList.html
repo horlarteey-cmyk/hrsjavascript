@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 40px;   
+        }
+
+        .todo-container {
+        width: 400px;
+        max-width: 100%;
+        margin: auto;
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+        text-align: center;
+        }
+
+        #todoInput {
+        width: 70%;
+        padding: 10px;
+        box-sizing: border-box;
+        }
+
+        button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+
+        button:hover {
+        background-color: #0056b3;
+        }
+
+        .todo-item {
+        background-color: #f1f1f1;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="todo-container">
+
+        <h1>My Todo List</h1>
+        
+        <input type="text" id="todoInput" placeholder="Enter a todo">
+
+        <button onclick="addTodo()">Add</button>
+
+        <div id="todoList"></div>
+
+    </div>
+
+
+    <script>
+
+        let todos = [];
+
+        function addTodo() {
+
+            let input = document.getElementById("todoInput");
+
+            let todo = input.value;
+
+            if (todo == "") {
+            alert("Please enter a todo");
+            return;
+            }
+
+            todos.push(todo);
+
+
+            displayTodos();
+
+            input.value = "";
+
+        }
+
+
+        function displayTodos() {
+
+            let todoList = document.getElementById("todoList");
+
+            todoList.innerHTML = "";
+
+
+    
+            for (let i = 0; i < todos.length; i++) {
+
+                todoList.innerHTML += "<div class='todo-item'>" + todos[i] + "</div>";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
