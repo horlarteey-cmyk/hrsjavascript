@@ -191,11 +191,11 @@
                 category = "Normal weight";
                 result.className = "normal";
             } 
-            else if (bmi > 29.9) {
+            else if (bmi < 29.9) {
                 category = "Overweight";
                 result.className = "overweight";
             } 
-            else if (bmi <= 30){
+            else if (bmi >= 30){
                 category = "Obese"
                 result.className = "obese"
             }
